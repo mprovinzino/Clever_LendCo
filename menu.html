@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Brack Shack | Modern Menu</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #ffffff;
+      --accent: #dc2626;
+      --accent-dark: #991b1b;
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --soft: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #0b1223 0%, var(--bg) 100%);
+      padding: 2rem 1rem 3rem;
+    }
+
+    .menu-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 25px 70px rgba(2, 6, 23, 0.45);
+    }
+
+    .hero {
+      background: radial-gradient(circle at top left, #ef4444 0%, var(--accent-dark) 55%, #3b0a0a 100%);
+      color: #fff;
+      padding: 2rem;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+
+    .brand {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .tagline {
+      margin: 0;
+      opacity: 0.9;
+      max-width: 56ch;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem 1rem;
+      font-weight: 600;
+    }
+
+    .meta span {
+      background: rgba(255, 255, 255, 0.18);
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .qr-panel {
+      margin-top: 0.75rem;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--ink);
+      border-radius: 16px;
+      padding: 1rem;
+      width: min(320px, 100%);
+    }
+
+    .qr-panel h2 {
+      margin: 0 0 0.35rem;
+      font-size: 1rem;
+    }
+
+    .qr-panel p {
+      margin: 0 0 0.75rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .qr-panel img {
+      width: 150px;
+      aspect-ratio: 1/1;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+      display: block;
+    }
+
+    .sections {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      padding: 1rem;
+      background: var(--soft);
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1rem;
+    }
+
+    h3 {
+      margin: 0 0 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    li {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px dashed #e2e8f0;
+      padding-bottom: 0.45rem;
+    }
+
+    li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .item-name {
+      font-weight: 700;
+    }
+
+    .item-note {
+      display: block;
+      margin-top: 0.15rem;
+      color: var(--muted);
+      font-size: 0.87rem;
+      font-weight: 500;
+    }
+
+    .price {
+      color: var(--accent-dark);
+      font-weight: 800;
+      white-space: nowrap;
+      margin-left: 0.5rem;
+    }
+
+    footer {
+      padding: 1rem 1.2rem 1.4rem;
+      color: var(--muted);
+      font-size: 0.86rem;
+      background: #fff;
+    }
+
+    @media (min-width: 880px) {
+      .hero {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+      }
+
+      .qr-panel {
+        margin-top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="menu-shell">
+    <header class="hero">
+      <div>
+        <h1 class="brand">The Brack Shack<br />Bar &amp; Grill</h1>
+        <p class="tagline">Home of the Pulled POLK Egg Roll · A cleaner, easier-to-read menu built from your current paper menus.</p>
+        <div class="meta">
+          <span>📞 863-875-8540</span>
+          <span>📍 231 E Lake Ave, Auburndale</span>
+        </div>
+      </div>
+      <aside class="qr-panel">
+        <h2>Scan to view this menu</h2>
+        <p>Use your phone camera to open the live artifact link.</p>
+        <img id="menu-qr" alt="QR code for The Brack Shack digital menu" />
+      </aside>
+    </header>
+
+    <section class="sections">
+      <article class="card">
+        <h3>Appetizers</h3>
+        <ul>
+          <li><span><span class="item-name">Fried Dill Pickles / Banana Peppers</span><span class="item-note">House or seasoned ranch</span></span><span class="price">$5.99</span></li>
+          <li><span><span class="item-name">Fried Green 'Maters</span><span class="item-note">Feta or blue cheese crumbles, scallions, ranch</span></span><span class="price">$6.99</span></li>
+          <li><span class="item-name">Rib Tips (shareable)</span><span class="price">$7.99</span></li>
+          <li><span class="item-name">Bacon Wrapped RAZZ-potle Meatballs</span><span class="price">$2 ea</span></li>
+          <li><span class="item-name">Fried Mozzarella Sticks (6)</span><span class="price">$6.99</span></li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Famous Egg Rolls</h3>
+        <ul>
+          <li><span><span class="item-name">Original Pulled POLK</span><span class="item-note">Pulled pork, sweet BBQ sauce, slaw</span></span><span class="price">$4.99</span></li>
+          <li><span><span class="item-name">Original with Brisket</span><span class="item-note">Beef brisket, sweet BBQ sauce, slaw</span></span><span class="price">$4.99</span></li>
+          <li><span><span class="item-name">Brisket Mac</span><span class="item-note">Brisket and mac-n-cheese</span></span><span class="price">$4.99</span></li>
+          <li><span><span class="item-name">Taco Egg Roll</span><span class="item-note">Taco meat, shredded cheddar, lettuce, crema</span></span><span class="price">$4.99</span></li>
+          <li><span><span class="item-name">A'dale Cheesesteak</span><span class="item-note">Beef, bell peppers, red onion, mozzarella</span></span><span class="price">$4.99</span></li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Smash Burgers &amp; BBQ</h3>
+        <ul>
+          <li><span><span class="item-name">Smashing Good Time Burger</span><span class="item-note">Double Angus, sautéed onion, American</span></span><span class="price">$10.49+</span></li>
+          <li><span><span class="item-name">Brackshroom Swiss</span><span class="item-note">Double Angus, sautéed mushroom, Swiss, A-1</span></span><span class="price">$11.49+</span></li>
+          <li><span><span class="item-name">Pulled Pork / Chunk Chicken Sandwich</span><span class="item-note">Basket + side $12.49 · Plate +2 sides $14.49</span></span><span class="price">$10.49</span></li>
+          <li><span><span class="item-name">Chopped Brisket Sandwich</span><span class="item-note">Basket + side $15.49 · Plate +2 sides $17.49</span></span><span class="price">$13.49</span></li>
+          <li><span><span class="item-name">Rib Plates</span><span class="item-note">Half slab $18 · Full slab $32 · Rib basket $14.49</span></span><span class="price">See note</span></li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Wings &amp; House Favorites</h3>
+        <ul>
+          <li><span><span class="item-name">Deez Wings</span><span class="item-note">Breaded smoke-a-fried, sweet &amp; spicy, strawbanero, bourbon, or plain</span></span><span class="price">MP</span></li>
+          <li><span><span class="item-name">Doze Wings</span><span class="item-note">Naked smoke-a-fried, tossed or plain</span></span><span class="price">MP</span></li>
+          <li><span><span class="item-name">No Bonez Wings</span><span class="item-note">Breaded or naked breast, fried</span></span><span class="price">MP</span></li>
+          <li><span><span class="item-name">BBQ Nachos</span><span class="item-note">Brisket $10.99 · Pork $10.49 · Chicken $10.49</span></span><span class="price">$10.49+</span></li>
+          <li><span class="item-name">Bourbon Chunk Chicken w/ lo mein or fried rice</span><span class="price">$12.99</span></li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Sides, Kids, Beer &amp; Wine</h3>
+        <ul>
+          <li><span><span class="item-name">Sides</span><span class="item-note">Fries, onion rings, sweet potato fries, mac &amp; cheese, collard greens, slaw, potato salad, fried okra, tater tots</span></span><span class="price">$3.99</span></li>
+          <li><span><span class="item-name">Kids Meal</span><span class="item-note">Nuggets, cheeseburger/pulled pork sliders, or corn dog + side + 12oz drink</span></span><span class="price">$6.99</span></li>
+          <li><span><span class="item-name">Drafts</span><span class="item-note">Michelob Ultra, Jai Lai, Yuengling, Miller Lite, Busch Light</span></span><span class="price">—</span></li>
+          <li><span><span class="item-name">Beer, Seltzers, Wine</span><span class="item-note">Domestic, import, craft, White Claw/NUTRL/Surfside, red &amp; white wines</span></span><span class="price">—</span></li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Signature Cocktails</h3>
+        <ul>
+          <li><span class="item-name">Chocolate Cherry Old Fashion</span><span class="price">—</span></li>
+          <li><span class="item-name">Strawberry Lemonade Smash</span><span class="price">—</span></li>
+          <li><span class="item-name">Florida Tea · White Tea · Green Tea</span><span class="price">—</span></li>
+          <li><span class="item-name">Mojito · Margarita · Lemon Drop · Espresso Martini</span><span class="price">—</span></li>
+          <li><span class="item-name">Bahama Mama · Hurricane · Dirty Shirley · Long Island Iced Tea</span><span class="price">—</span></li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      Menu rebuilt from photographed print menus. Prices and availability may change; call to confirm specials.
+    </footer>
+  </main>
+
+  <script>
+    const qrTarget = "https://example.com/brack-shack-menu";
+    const qrImage = document.getElementById("menu-qr");
+    qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(qrTarget)}`;
+  </script>
+</body>
+</html>
